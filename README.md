@@ -52,20 +52,21 @@ cd htmx-alpine-tutorial
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"fmt"
+	"log"
+	"net/http"
 )
 
 func main() {
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintln(w, "Hello, htmx + Alpine.js tutorial!")
-    })
+	http.HandleFunc("/", helloHandler)
 
-    log.Println("Listening on http://localhost:8080")
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("Listening on http://localhost:8000")
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
-```
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello, htmx + Alpine.js tutorial!")
+}```
 
 ### 0-2. 実行して確認
 
